@@ -1,0 +1,15 @@
+<li class="nav-item me-4">
+  <%= link_to "Home", root_path, class: 'nav-link' %>
+</li>
+<li class="nav-item me-4">
+  <%= link_to "Posts", posts_path, class: 'nav-link' %>
+</li>
+<li class="nav-item me-4">
+  <%= link_to "Jobs", jobs_path, class: 'nav-link' %>
+</li>
+
+<%= turbo_stream_from :time %>
+
+<li class="nav-item me-4">
+  <%= link_to "", "#", id: :time, class: 'nav-link' %>
+</li>
