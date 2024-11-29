@@ -7,12 +7,12 @@ image: kobaltz/example
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.1.113
-    - 192.168.1.114
+    - 192.168.1.213
+    - 192.168.1.214
   job:
     hosts:
-      - 192.168.1.115
-      - 192.168.1.116
+      - 192.168.1.215
+      - 192.168.1.216
     cmd: bin/jobs
 
 
@@ -98,7 +98,7 @@ builder:
 accessories:
   loadbalancer:
     image: nginx:latest
-    host: 192.168.1.112
+    host: 192.168.1.212
     port: "80:80"
     files:
       - config/nginx.conf:/etc/nginx/conf.d/default.conf
@@ -106,7 +106,7 @@ accessories:
   postgres:
     image: postgres:17
     port: 5432:5432
-    host: 192.168.1.117
+    host: 192.168.1.217
     env:
       clear:
         POSTGRES_USER: example
@@ -118,7 +118,7 @@ accessories:
 
   minio:
     image: minio/minio
-    host: 192.168.1.118
+    host: 192.168.1.218
     options:
       publish:
         - "9000:9000"
