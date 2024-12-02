@@ -55,6 +55,6 @@ group :development do
   gem "web-console"
 end
 
-gem "aws-sdk-s3", "~> 1.169"
+gem "aws-sdk-s3", "~> 1.175"
 
 gem "mission_control-jobs", "~> 0.3.3"
