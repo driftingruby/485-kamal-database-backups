@@ -59,7 +59,7 @@ env:
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal logs -r job" will tail logs from the first server in the job section.
 aliases:
-  console: app exec --interactive --reuse "bin/rails console"
+  console: app exec --interactive --reuse "bin/rails console --sandbox"
   shell: app exec --interactive --reuse "bash"
   logs: app logs -f
   dbc: app exec --interactive --reuse "bin/rails dbconsole"
@@ -115,6 +115,21 @@ accessories:
         - POSTGRES_PASSWORD
     directories:
       - data:/var/lib/postgresql/data
+
+  postgres_backup:
+    image: kartoza/pg-backup:17-3.5
+    host: 192.168.1.217
+    env:
+      clear:
+        POSTGRES_USER: example
+        POSTGRES_DB: example_production
+        POSTGRES_HOST: 192.168.1.217
+        POSTGRES_PORT: 5432
+        CRON_SCHEDULE: "*/10 * * * *"
+      secret:
+        - POSTGRES_PASS
+    directories:
+      - backups:/backups
 
   minio:
     image: minio/minio
