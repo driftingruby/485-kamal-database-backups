@@ -57,4 +57,4 @@ end
 
 gem "aws-sdk-s3", "~> 1.169"
 
-gem "mission_control-jobs", "~> 0.3.3"
+gem "mission_control-jobs", "~> 1.0.1"
